@@ -237,7 +237,7 @@ Tu trouveras comment envoyer des _headers_ avec _axios_ sur le lien suivant : [h
 
 Si tout se passe bien, modifie le _state_ de `users` et la liste des utilisateurs devrait s'afficher.
 
-S'il y a une erreur (dans la méthode `catch`), vérifie le _status code_ (`error.response.status`). S'il est égal à 403, cela veut dire que la personne n'est pas authentifiée. Afficher une boîte d'alerte avec le message "You're not authorized to access these datas". Si ce n'est pas ce code d'erreur, afficher le message d'erreur récupéré dans la réponse.
+S'il y a une erreur (dans la méthode `catch`), vérifie le _status code_ (`error.response.status`). S'il est égal à 401, cela veut dire que la personne n'est pas authentifiée. Afficher une boîte d'alerte avec le message "You're not authorized to access these datas". Si ce n'est pas ce code d'erreur, afficher le message d'erreur récupéré dans la réponse.
 
 > Astuce : faire des `console.log` un peu partout pour t'aider si ça ne marche pas.
 
