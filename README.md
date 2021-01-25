@@ -285,7 +285,7 @@ useEffect(() => {
 }, []);
 ```
 
-## 5 - Page authentifiée : liste des utilisateurs
+## 5 - Déconnexion de l'utilisateur
 
 Termine maintenant en allant dans le composant `Logout`.
 
