@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const Users = () => {
-  // eslint-disable-next-line no-unused-vars
   const [users, setUsers] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     const { REACT_APP_SERVER_ADDRESS } = process.env;
@@ -19,14 +20,12 @@ const Users = () => {
         setUsers(data);
       })
       .catch((err) => {
-        let message;
         if (err.response.status === 401) {
-          message = "You're not authorized to access these datas";
+          // invalid token, force disconnect
+          history.push("/logout");
         } else {
-          message = err.response.data.errorMessage;
+          alert(err.response.data.errorMessage);
         }
-        alert(message);
-        console.error(err);
       });
   }, []);
 

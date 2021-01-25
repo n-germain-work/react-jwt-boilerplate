@@ -1,18 +1,18 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import { TokenContext } from "../contexts/TokenContext";
 
 const Logout = () => {
-  const handleSubmit = () => {
-    localStorage.removeItem("TOKEN");
-    alert("Disconnected successfully");
-  };
+  const { setToken } = useContext(TokenContext);
+  const history = useHistory();
 
-  return (
-    <form>
-      <button type="button" onClick={handleSubmit}>
-        Disconnect
-      </button>
-    </form>
-  );
+  useEffect(() => {
+    localStorage.removeItem("TOKEN");
+    setToken(null);
+    history.push("/login");
+  }, []);
+
+  return <div>Log out...</div>;
 };
 
 export default Logout;
